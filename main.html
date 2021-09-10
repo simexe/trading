@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Main</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-09-10"><meta name="DC.source" content="Main.m"><style type="text/css">
+      --><title>bidask</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-09-10"><meta name="DC.source" content="bidask.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -67,48 +67,700 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><pre class="codeoutput">Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm:ss' but
-also matched 'dd/MM/uuuu HH:mm:ss'.
-To avoid ambiguity, supply a datetime format using SETVAROPTS, e.g.
-  opts = setvaropts(opts,varname,'InputFormat','MM/dd/uuuu HH:mm:ss'); 
-         Timestamp         GroupKey    BidPrice_Buy_    AskPrice_Sell_
-    ___________________    ________    _____________    ______________
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Clear temporary variables</a></li></ul></div><pre class="codeoutput">
+wd = 
 
-    09/09/2021 12:09:57      1536              100               200  
-    09/09/2021 12:10:04      1536              250               350  
-    09/09/2021 18:35:06      1536              500               600  
-    09/09/2021 18:52:15      9999             55.6                99  
-    09/09/2021 19:08:10      5536            78900        7.8889e+05  
-    09/09/2021 19:59:56     66666          9.8e+05           9.5e+06  
-    09/09/2021 20:03:16      5555       9.5556e+06        6.5556e+10  
-    09/09/2021 20:17:53     55550             3523              4328  
-    09/10/2021 14:42:23     11111            9e+12             9e+15  
+    "D:\Dropbox (Personal)\Research\Research\Code\Graphs, Numerical Simulations"
 
-</pre><img vspace="5" hspace="5" src="Main_01.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+</pre><h2 id="2">Clear temporary variables</h2><pre class="codeoutput">
+tmp1 =
+
+  Columns 1 through 7
+
+         0       NaN    1.0000  190.0000         0  198.0000         0
+         0       NaN    2.0000  195.0000         0  205.0000         0
+         0       NaN    1.0000  200.0000         0         0         0
+         0       NaN    2.0000  201.0000         0         0         0
+         0       NaN    1.0000  204.0000         0  198.0000         0
+         0       NaN    2.0000  208.0000         0  208.0000         0
+         0       NaN    1.0000  190.0000         0  195.0000         0
+         0       NaN    2.0000  205.0000         0  206.0000         0
+         0       NaN    1.0000  198.0000         0         0         0
+         0       NaN    2.0000  202.0000         0         0         0
+         0       NaN    1.0000  199.0000         0  236.8750         0
+         0       NaN    2.0000  208.0000         0  242.3750         0
+
+  Columns 8 through 14
+
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+
+  Columns 15 through 21
+
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+
+  Columns 22 through 23
+
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+
+
+ans =
+
+  Columns 1 through 7
+
+         0       NaN    1.0000  190.0000         0  198.0000         0
+         0       NaN    1.0000  200.0000         0         0         0
+         0       NaN    1.0000  204.0000         0  198.0000         0
+         0       NaN    1.0000  190.0000         0  195.0000         0
+         0       NaN    1.0000  198.0000         0         0         0
+         0       NaN    1.0000  199.0000         0  236.8750         0
+         0       NaN    2.0000  195.0000         0  205.0000         0
+         0       NaN    2.0000  201.0000         0         0         0
+         0       NaN    2.0000  208.0000         0  208.0000         0
+         0       NaN    2.0000  205.0000         0  206.0000         0
+         0       NaN    2.0000  202.0000         0         0         0
+         0       NaN    2.0000  208.0000         0  242.3750         0
+
+  Columns 8 through 14
+
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+
+  Columns 15 through 21
+
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+
+  Columns 22 through 23
+
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+         0         0
+
+
+ans =
+
+  Columns 1 through 7
+
+         0         0       NaN       NaN    1.0000    1.0000  190.0000
+         0         0       NaN       NaN    2.0000    2.0000  195.0000
+         0         0       NaN       NaN    1.0000    1.0000  200.0000
+         0         0       NaN       NaN    2.0000    2.0000  201.0000
+         0         0       NaN       NaN    1.0000    1.0000  204.0000
+         0         0       NaN       NaN    2.0000    2.0000  208.0000
+
+  Columns 8 through 14
+
+  190.0000         0         0  198.0000  195.0000         0         0
+  205.0000         0         0  205.0000  206.0000         0         0
+  198.0000         0         0         0         0         0         0
+  202.0000         0         0         0         0         0         0
+  199.0000         0         0  198.0000  236.8750         0         0
+  208.0000         0         0  208.0000  242.3750         0         0
+
+  Columns 15 through 21
+
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+
+  Columns 22 through 28
+
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+
+  Columns 29 through 35
+
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+
+  Columns 36 through 42
+
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+         0         0         0         0         0         0         0
+
+  Columns 43 through 46
+
+         0         0         0         0
+         0         0         0         0
+         0         0         0         0
+         0         0         0         0
+         0         0         0         0
+         0         0         0         0
+
+
+N =
+
+    30
+
+
+B1 =
+
+    91
+    98
+    91
+    97
+    97
+    97
+    91
+    94
+    93
+    97
+    94
+    98
+    92
+    93
+    92
+    92
+    97
+    95
+    95
+    92
+    97
+    95
+    93
+    95
+    94
+    91
+    92
+    91
+    92
+    92
+
+
+S1 =
+
+    94
+    91
+    98
+    98
+    94
+    94
+    93
+    98
+    93
+    91
+    97
+    94
+    92
+    94
+    91
+    92
+    98
+    98
+    95
+    91
+    92
+    93
+    97
+    91
+    91
+    92
+    96
+    96
+    96
+    94
+
+
+B2 =
+
+    91
+    91
+    91
+    91
+    91
+    92
+    92
+    92
+    92
+    92
+    92
+    92
+    93
+    93
+    93
+    94
+    94
+    94
+    95
+    95
+    95
+    95
+    97
+    97
+    97
+    97
+    97
+    97
+    98
+    98
+
+
+S2 =
+
+    91
+    91
+    91
+    91
+    91
+    91
+    92
+    92
+    92
+    92
+    93
+    93
+    93
+    94
+    94
+    94
+    94
+    94
+    94
+    95
+    96
+    96
+    96
+    97
+    97
+    98
+    98
+    98
+    98
+    98
+
+
+a1 =
+
+    1.0000         0         0
+    2.0000         0         0
+    3.0000         0         0
+    4.0000         0         0
+    5.0000         0         0
+    6.0000         0         0
+    7.0000         0         0
+    8.0000         0         0
+    9.0000         0         0
+   10.0000         0         0
+   11.0000         0         0
+   12.0000         0         0
+   13.0000         0         0
+   14.0000         0         0
+   15.0000         0         0
+   16.0000         0         0
+   17.0000         0         0
+   18.0000         0         0
+   19.0000         0         0
+   20.0000         0         0
+   21.0000         0         0
+   22.0000         0         0
+   23.0000         0         0
+   24.0000         0         0
+   25.0000         0         0
+   26.0000         0         0
+   27.0000         0         0
+   28.0000         0         0
+   29.0000         0         0
+   30.0000         0         0
+   31.0000         0         0
+   32.0000         0         0
+   33.0000         0         0
+   34.0000         0         0
+   35.0000         0         0
+   36.0000         0         0
+   37.0000         0         0
+   38.0000         0         0
+   39.0000         0         0
+   40.0000         0         0
+   41.0000         0         0
+   42.0000         0         0
+   43.0000         0         0
+   44.0000         0         0
+   45.0000         0         0
+   46.0000         0         0
+   47.0000         0         0
+   48.0000         0         0
+   49.0000         0         0
+   50.0000         0         0
+   51.0000         0         0
+   52.0000         0         0
+   53.0000         0         0
+   54.0000         0         0
+   55.0000         0         0
+   56.0000         0         0
+   57.0000         0         0
+   58.0000         0         0
+   59.0000         0         0
+   60.0000         0         0
+   61.0000         0         0
+   62.0000         0         0
+   63.0000         0         0
+   64.0000         0         0
+   65.0000         0         0
+   66.0000         0         0
+   67.0000         0         0
+   68.0000         0         0
+   69.0000         0         0
+   70.0000         0         0
+   71.0000         0         0
+   72.0000         0         0
+   73.0000         0         0
+   74.0000         0         0
+   75.0000         0         0
+   76.0000         0         0
+   77.0000         0         0
+   78.0000         0         0
+   79.0000         0         0
+   80.0000         0         0
+   81.0000         0         0
+   82.0000         0         0
+   83.0000         0         0
+   84.0000         0         0
+   85.0000         0         0
+   86.0000         0         0
+   87.0000         0         0
+   88.0000         0         0
+   89.0000         0         0
+   90.0000         0         0
+   91.0000    5.0000   16.6667
+   92.0000    7.0000   23.3333
+   93.0000    3.0000   10.0000
+   94.0000    3.0000   10.0000
+   95.0000    4.0000   13.3333
+   96.0000         0         0
+   97.0000    6.0000   20.0000
+   98.0000    2.0000    6.6667
+
+
+a2 =
+
+    91     5
+    92     7
+    93     3
+    94     3
+    95     4
+    97     6
+    98     2
+
+
+b1 =
+
+    1.0000         0         0
+    2.0000         0         0
+    3.0000         0         0
+    4.0000         0         0
+    5.0000         0         0
+    6.0000         0         0
+    7.0000         0         0
+    8.0000         0         0
+    9.0000         0         0
+   10.0000         0         0
+   11.0000         0         0
+   12.0000         0         0
+   13.0000         0         0
+   14.0000         0         0
+   15.0000         0         0
+   16.0000         0         0
+   17.0000         0         0
+   18.0000         0         0
+   19.0000         0         0
+   20.0000         0         0
+   21.0000         0         0
+   22.0000         0         0
+   23.0000         0         0
+   24.0000         0         0
+   25.0000         0         0
+   26.0000         0         0
+   27.0000         0         0
+   28.0000         0         0
+   29.0000         0         0
+   30.0000         0         0
+   31.0000         0         0
+   32.0000         0         0
+   33.0000         0         0
+   34.0000         0         0
+   35.0000         0         0
+   36.0000         0         0
+   37.0000         0         0
+   38.0000         0         0
+   39.0000         0         0
+   40.0000         0         0
+   41.0000         0         0
+   42.0000         0         0
+   43.0000         0         0
+   44.0000         0         0
+   45.0000         0         0
+   46.0000         0         0
+   47.0000         0         0
+   48.0000         0         0
+   49.0000         0         0
+   50.0000         0         0
+   51.0000         0         0
+   52.0000         0         0
+   53.0000         0         0
+   54.0000         0         0
+   55.0000         0         0
+   56.0000         0         0
+   57.0000         0         0
+   58.0000         0         0
+   59.0000         0         0
+   60.0000         0         0
+   61.0000         0         0
+   62.0000         0         0
+   63.0000         0         0
+   64.0000         0         0
+   65.0000         0         0
+   66.0000         0         0
+   67.0000         0         0
+   68.0000         0         0
+   69.0000         0         0
+   70.0000         0         0
+   71.0000         0         0
+   72.0000         0         0
+   73.0000         0         0
+   74.0000         0         0
+   75.0000         0         0
+   76.0000         0         0
+   77.0000         0         0
+   78.0000         0         0
+   79.0000         0         0
+   80.0000         0         0
+   81.0000         0         0
+   82.0000         0         0
+   83.0000         0         0
+   84.0000         0         0
+   85.0000         0         0
+   86.0000         0         0
+   87.0000         0         0
+   88.0000         0         0
+   89.0000         0         0
+   90.0000         0         0
+   91.0000    6.0000   20.0000
+   92.0000    4.0000   13.3333
+   93.0000    3.0000   10.0000
+   94.0000    6.0000   20.0000
+   95.0000    1.0000    3.3333
+   96.0000    3.0000   10.0000
+   97.0000    2.0000    6.6667
+   98.0000    5.0000   16.6667
+
+
+b2 =
+
+    91     6
+    92     4
+    93     3
+    94     6
+    95     1
+    96     3
+    97     2
+    98     5
+
+
+price =
+
+    91
+    92
+    93
+    94
+    95
+    97
+    98
+    91
+    92
+    93
+    94
+    95
+    96
+    97
+    98
+
+
+minprice =
+
+    91
+
+
+maxprice =
+
+    98
+
+
+gridprice =
+
+    91    92    93    94    95    96    97    98
+
+
+fig = 
+
+  Figure (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [1256 1206 560 420]
+       Units: 'pixels'
+
+  Use GET to show all properties
+
+
+a2 =
+
+    91     5
+    92     7
+    93     3
+    94     3
+    95     4
+    97     6
+    98     2
+
+
+b2 =
+
+    91     6
+    92     4
+    93     3
+    94     6
+    95     1
+    96     3
+    97     2
+    98     5
+
+</pre><img vspace="5" hspace="5" src="bidask_01.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-
-
-clear 
-%x = readtable('C:\Users\Home\Desktop\test01.csv')
-%x = readtable('https://docs.google.com/spreadsheets/d/1ssPAVj_6CEB9L4Os6O5iZeBpUcS9nCH4NrKYwJMxetA/edit?usp=sharing')
-
-
-ID = '1ssPAVj_6CEB9L4Os6O5iZeBpUcS9nCH4NrKYwJMxetA';
-sheet_name = 'My Sheet';
-url_name = sprintf('https://docs.google.com/spreadsheets/d/%s/gviz/tq?tqx=out:csv&sheet=%s',ID, sheet_name);
-sheet_data = webread(url_name);
-
-writetable(sheet_data,'book1.xlsx');
-
-x1 = sheet_data.BidPrice_Buy_;
-x2 = sheet_data.AskPrice_Sell_;
-
+close all
+clear
 clc
+wd = "D:\Dropbox (Personal)\Research\Research\Code\Graphs, Numerical Simulations"
+clc
+opts = spreadsheetImportOptions("NumVariables", 13);
+opts.Sheet = "Teams";
+opts.DataRange = "A2:M24";
+opts.VariableNames = ["Value", "VarName2", "VarName3", "VarName4", "VarName5", "VarName6", "VarName7", "VarName8", "VarName9", "VarName10", "VarName11", "VarName12", "VarName13"];
+opts.VariableTypes = ["double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double"];
+IBFMsimulationS2 = readtable("D:\OneDrive - University of Glasgow\IBFM\IBFM simulation temp.xlsx", opts, "UseExcel", false);
+data = table2array(IBFMsimulationS2);
 
-disp(sheet_data)
-scatter(x1,x2)
+%% Clear temporary variables
+clear opts
+
+tmp1 = data(:,2:end)'
+sortrows(tmp1,[2,3])
+reshape(tmp1,6,[])
+
+N  = 30
+B1 = 90 + unidrnd(8,[N,1])
+S1 = 90 + unidrnd(8,[N,1])
+B2 = sort(B1)
+S2 = sort(S1)
+
+a1 = tabulate(B2)
+a2 = a1(a1(:,2)>0,1:2)
+
+b1 = tabulate(S2)
+b2 = b1(b1(:,2)>0,1:2)
+
+price = [a2(:,1);b2(:,1)]
+minprice = min(price)
+maxprice = max(price)
+gridprice = linspace(minprice,maxprice,(maxprice-minprice+1))
+
+fig = figure
+stem(a2(:,1), a2(:,2),'filled','markersize',8,'linew',2,'marker','_');hold on
+stem(b2(:,1),-b2(:,2),'filled','markersize',8,'linew',2,'marker','_');hold off
+xticks(minprice:maxprice)
+xlim([minprice-1, maxprice+1])
+ylim([-N/2 N/2])
+grid on
+xlabel('Buy/Sell Submitted Prices (£)')
+ylabel('Depth (No. Orders): Buy (+), Sell (-)')
+title('Limit Order Book')
+
+% clearing
+
+a2
+b2
 
 
+set(gcf, 'PaperPosition', [0 -0.05 16 11]) ; 
+set(gcf, 'PaperSize', [16 11]) ; 
+saveas(fig, fullfile(wd, 'bidask_fig1'), 'pdf')
 
 ##### SOURCE END #####
 --></body></html>
