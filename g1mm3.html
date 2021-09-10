@@ -26,7 +26,7 @@
 <style>
 .bubble {
     position: relative;
-    background: linear-gradient(-50deg, #d9c43c 24%, #fffd70 91%);
+    background: linear-gradient(-50deg, #fff7c7 24%, #fffda4 91%);
     color: #000000;
     font-family: Arial;
     font-size: 16px;
@@ -46,7 +46,7 @@
     width: 0;
     z-index: 1;
     border-style: solid;
-    border-color: transparent #d9c43c;
+    border-color: transparent #e6d988;
     border-width: 9px 14px 9px 0;
     top: 17%;
     left: -14px;
@@ -130,10 +130,19 @@ body {font-family: Arial;
 <h2>Trading Simulation</h2>
 <p>Private Information</p>
 
-<div class="bubble">Your financial analyst has concluded that there is 25% probability that the fundamental asset value is <mark>£675</mark>. This information is only available to your group and should be incorporated into your decision making to predict asset value. <br>
+<div class="bubble">Your financial analyst has concluded that there is 25% probability that the fundamental asset value is <mark>£675</mark>. This information is your <u>private information</u> and only available to your group. 
+  
+</br></br>
+  The remaining 75% of possible values are publicly available to all groups. You will need to incorporate both the private and public information to predict asset value and place your bid-ask quotes around your prediction. <br>
 </div>
 
 <br>
+<div class="bubble">For example, if your predicted values is £685, you can place a bid (buy) price that is below £685 and an ask (sell) price that is above £685. The choice of how much above or below the predicted value depends on you! 
+</br></br>
+These can be as small as £0.01 to larger values e.g. £50 but remember that your bid (buy) price needs to be lower than the ask (sell) price!
+  <br>
+</div>
+
 <br>
 Take a note of this value and <a href="./index.html">return to previous page</a> to post your quotes. <br>
 
