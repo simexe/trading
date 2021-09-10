@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>main</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-09-10"><meta name="DC.source" content="main.m"><style type="text/css">
+      --><title>Main</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-09-10"><meta name="DC.source" content="Main.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -67,45 +67,23 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><pre class="codeinput">clear
-<span class="comment">%x = readtable('C:\Users\Home\Desktop\test01.csv')</span>
-<span class="comment">%x = readtable('https://docs.google.com/spreadsheets/d/1ssPAVj_6CEB9L4Os6O5iZeBpUcS9nCH4NrKYwJMxetA/edit?usp=sharing')</span>
+  </style></head><body><div class="content"><pre class="codeoutput">Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm:ss' but
+also matched 'dd/MM/uuuu HH:mm:ss'.
+To avoid ambiguity, supply a datetime format using SETVAROPTS, e.g.
+  opts = setvaropts(opts,varname,'InputFormat','MM/dd/uuuu HH:mm:ss'); 
+         Timestamp         GroupKey    BidPrice_Buy_    AskPrice_Sell_
+    ___________________    ________    _____________    ______________
 
+    09/09/2021 12:09:57      1536              100               200  
+    09/09/2021 12:10:04      1536              250               350  
+    09/09/2021 18:35:06      1536              500               600  
+    09/09/2021 18:52:15      9999             55.6                99  
+    09/09/2021 19:08:10      5536            78900        7.8889e+05  
+    09/09/2021 19:59:56     66666          9.8e+05           9.5e+06  
+    09/09/2021 20:03:16      5555       9.5556e+06        6.5556e+10  
+    09/09/2021 20:17:53     55550             3523              4328  
 
-ID = <span class="string">'1ssPAVj_6CEB9L4Os6O5iZeBpUcS9nCH4NrKYwJMxetA'</span>;
-sheet_name = <span class="string">'My Sheet'</span>;
-url_name = sprintf(<span class="string">'https://docs.google.com/spreadsheets/d/%s/gviz/tq?tqx=out:csv&amp;sheet=%s'</span>,ID, sheet_name);
-sheet_data = webread(url_name);
-
-writetable(sheet_data,<span class="string">'book1.xlsx'</span>);
-
-x1 = sheet_data.BidPrice_Buy_;
-x2 = sheet_data.AskPrice_Sell_;
-
-clc
-clc
-disp(sheet_data)
-scatter(x1,x2)
-
-options = struct(<span class="string">'format'</span>,<span class="string">'html'</span>,<span class="string">'outputDir'</span>,<span class="string">'D:\Github\trading\trading\'</span>)
-publish(<span class="string">'main.m'</span>,options)
-</pre><pre class="codeoutput error">Error using evalin
-Cannot find an exact (case-sensitive) match for 'main'
-
-The closest match is: Main in D:\Dropbox (Personal)\Sim_post\Main.m
-
-
-Error in evalmxdom&gt;instrumentAndRun (line 109)
-text = evalc(evalstr);
-
-Error in evalmxdom (line 21)
-[data,text,laste] = instrumentAndRun(file,cellBoundaries,imageDir,imagePrefix,options);
-
-Error in publish
-
-Error in Main (line 24)
-publish('main.m',options)
-</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+</pre><img vspace="5" hspace="5" src="Main_01.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 
 
@@ -125,12 +103,11 @@ x1 = sheet_data.BidPrice_Buy_;
 x2 = sheet_data.AskPrice_Sell_;
 
 clc
-clc
+
 disp(sheet_data)
 scatter(x1,x2)
 
-options = struct('format','html','outputDir','D:\Github\trading\trading\')
-publish('main.m',options)
+
 
 ##### SOURCE END #####
 --></body></html>
