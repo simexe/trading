@@ -26,7 +26,7 @@
 <style>
 .bubble {
     position: relative;
-    background: linear-gradient(-50deg, #fff7c7 24%, #fffda4 91%);
+    background: linear-gradient(-50deg, #fffceb 24%, #fffda4 91%);
     color: #000000;
     font-family: Arial;
     font-size: 16px;
@@ -59,6 +59,50 @@
     z-index: 0;
     border-style: solid;
     border-color: transparent #9e9600;
+    border-width: 12px 17px 12px 0;
+    top: 17%;
+    left: -18.5px;
+    margin-top: -12px;
+    display: block;
+}
+
+
+
+.bubblex {
+    position: relative;
+    background: linear-gradient(-50deg, #e2ffe6 24%, #a0ffb0 91%);
+    color: #000000;
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 23px;
+    box-shadow: 7px 5px 2px 0px #A3A3A3;
+    text-align: center;
+    width: 486px;
+    height: 173px;
+    border-radius: 16px;
+    padding: 14px;
+    border: #04bd95 solid 3px;
+}
+.bubblex:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-color: transparent #88e68d;
+    border-width: 9px 14px 9px 0;
+    top: 17%;
+    left: -14px;
+    margin-top: -9px;
+}
+.bubblex:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    z-index: 0;
+    border-style: solid;
+    border-color: transparent #0d9e00;
     border-width: 12px 17px 12px 0;
     top: 17%;
     left: -18.5px;
@@ -137,14 +181,14 @@ body {font-family: Arial;
 </div>
 
 <br>
-<div class="bubble">For example, if your predicted values is £685, you can place a bid (buy) price that is below £685 and an ask (sell) price that is above £685. The choice of how much above or below the predicted value depends on you! 
+<div class="bubblex">For example, if your predicted values is £685, you can place a bid (buy) price that is below £685 and an ask (sell) price that is above £685. The choice of how much above or below the predicted value depends on you! 
 </br></br>
 These can be as small as £0.01 to larger values e.g. £50 but remember that your bid (buy) price needs to be lower than the ask (sell) price!
   <br>
 </div>
 
 <br>
-Take a note of this value and <a href="./index.html">return to previous page</a> to post your quotes. <br>
+Take a note of the private information value and <a href="./index.html">return to previous page</a> to post your quotes. <br>
 
 
 </body>
