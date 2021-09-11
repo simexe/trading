@@ -90,7 +90,7 @@ body {font-family: Arial;
   
   <br>
 <h1>Welcome Day</h1>
-<h2>Trading Simulation</h2>
+<h2>Trading Simulation</h2> <mark style="color:red; font-family: 'Trebuchet MS'; ">  <div id="txt"></div> </mark>
 <p>Click on the tabs below to access market information and post bid-ask quotes</p>
 
 <div class="tab">
@@ -101,20 +101,41 @@ body {font-family: Arial;
 
 <div id="London" class="tabcontent">
   <h3>Post Bid-Ask Quotes</h3>
-  Time is:
-  <mark style="color:red; ">  <div id="txt"></div> </mark>
-
-
-
-
+  <ul>
+    <li>Please post your prices at each round only once.</li>
+    <li>If you post multiple times, the last instance in that round will be used as your valid posted values. However, if you post multiple times in each round, all of your posted values (regardless of valid or invalid) will be observable by other groups - this will boost other groups ability to learn more about your group&#39;s intentions while your own group's information will remain limited about them!</li>
+  </ul>
 
   <p><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfMwzghOxqC-FWpDJEWhojpfHAvgzVunDQdLbJ6vHTRO-7bEQ/viewform?embedded=true" width="480" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></p>
 </div>
 
 
 <div id="Paris" class="tabcontent">
-  <h3>Market Information</h3>
-  
+   
+  <h3><u><strong>Public Information</strong></u></h3>
+
+<p>At the beginning of simulation the asset price is &pound;650. However, this price is expected to change during each stage.</p>
+
+<p><u><strong>Stage 1:</strong></u><strong> </strong>Common knowledge about <u><em>potential</em></u><em> </em>value at next round is:</p>
+
+<ul>
+	<li>25% chance that asset price will increase to &pound;700</li>
+	<li>25% chance that asset price will remain the same at &pound;650</li>
+	<li>25% chance that asset price will decrease to &pound;600</li>
+	<li>the last 25% chance is given as private information to each group</li>
+</ul>
+
+<p>Atter Stage 1, posted bid-ask prices by all groups will become available and shown below.</p>
+
+<p>Please monitor the ongoing information below to update your subsequent bid-ask prices and post accordingly.</p>
+
+
+
+
+
+
+
+
   
   <p><iframe src="./main.html" width="100%" height="600"></iframe></p> 
 </div>
@@ -136,7 +157,7 @@ body {font-family: Arial;
   </div>
 
   </br>
-  <h3>Simulation Instruction</h3>
+  <h3>Simulation Instruction</h3> 
   
 
   
@@ -151,16 +172,16 @@ body {font-family: Arial;
     <li><span style="color:#000000">Bid-Ask prices posted by each group will go to the central market authority to form transactions</span></li>
   </ul>
   
-  <h3><u>Information</u></h3>
+  <h3><strong><u>Information</u></strong></h3>
   
-  <p>You are provided with partially known informatiom about the asset fundamental value.</p>
+  <p>You are provided with partially known information about the asset fundamental value.</p>
   
   <ul>
     <li>Public Information: all participating groups commonly know 75% of asset value.</li>
     <li>Private Information: each group is informed by their analyst about the remaining 25% of possible asset value.</li>
   </ul>
   
-  <p><u>Set-up</u></p>
+  <h3><strong><u>Set-up</u></strong></h3>
   
   <p>The exercise runs over many rounds - as long as time allows today! You are asked to post bid-ask quotes based on your predictions on each round:</p>
   
@@ -173,11 +194,13 @@ body {font-family: Arial;
     <li>I&rsquo;ll act as a limit order book clearing side and processing orders, matching the buy and sell sides</li>
   </ol>
   
-  <p>Objective</p>
+  <h3><strong><u>Objective</u></strong></h3>
   
   <p>The goal is to learn about the tensions between bid-ask pricing of a security versus maintaining an active transaction flow.</p>
   
-  <p>P<span style="font-size:0.9rem">lease be committed to your group member and actively engage. </span></p>
+  <p>Please be committed to your group members and actively engage.</p>
+  
+  <p>&nbsp;</p>
   
   
   
