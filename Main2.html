@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Main2</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-09-13"><meta name="DC.source" content="Main2.m"><style type="text/css">
+      --><title>main2</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-09-13"><meta name="DC.source" content="main2.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -67,23 +67,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><pre class="codeoutput error">Error using evalin
-Cannot find an exact (case-sensitive) match for 'Main2'
-
-The closest match is: main2 in C:\Users\Hormoz\Dropbox (Personal)\Sim_post\main2.m
-
-
-Error in evalmxdom&gt;instrumentAndRun (line 109)
-text = evalc(evalstr);
-
-Error in evalmxdom (line 21)
-[data,text,laste] = instrumentAndRun(file,cellBoundaries,imageDir,imagePrefix,options);
-
-Error in publish
-
-Error in main_publish (line 2)
-publish('Main2.m',options)
-</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+  </style></head><body><div class="content"><img vspace="5" hspace="5" src="main2_01.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 close all
 clear
@@ -92,8 +76,8 @@ clc
 
 
 N  = 30;
-B1 = 90 + unidrnd(8,[N,1]);
-S1 = 90 + unidrnd(8,[N,1]);
+B1 = 650 + unidrnd(25,[N,1]);
+S1 = 650 + unidrnd(25,[N,1]);
 B2 = sort(B1);
 S2 = sort(S1);
 
@@ -112,21 +96,16 @@ gridprice = linspace(minprice,maxprice,(maxprice-minprice+1));
 
 
 
-fig = figure
-stem(a2(:,1), a2(:,2),'filled','markersize',8,'linew',2,'marker','_');hold on
-stem(b2(:,1),-b2(:,2),'filled','markersize',8,'linew',2,'marker','_');hold off
-xticks(minprice:maxprice)
-xlim([minprice-1, maxprice+1])
-ylim([-N/2 N/2])
-grid on
-xlabel('Buy/Sell Submitted Prices (£)')
-ylabel('Depth (No. Orders): Buy (+), Sell (-)')
-title('Limit Order Book')
-
-% clearing
-
-a2
-b2
+fig = figure;
+stem(a2(:,1), a2(:,2),'filled','markersize',8,'linew',2,'marker','_');hold on;
+stem(b2(:,1),-b2(:,2),'filled','markersize',8,'linew',2,'marker','_');hold off;
+xticks(minprice:maxprice);
+xlim([minprice-1, maxprice+1]);
+ylim([-N/2 N/2]);
+grid on;
+xlabel('Buy/Sell Submitted Prices (£)');
+ylabel('Depth (No. Orders): Buy (+), Sell (-)');
+title('Limit Order Book');
 
 
 ##### SOURCE END #####
